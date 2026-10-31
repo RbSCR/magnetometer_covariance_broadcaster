@@ -7,8 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  MY_PACKAGES: bno08x_try_hal_dynamic_covariance imu_sensor_covariance_broadcaster magnetometer_covariance_broadcaster
-  # research of 'bno08x_try_sensor_status' has finished, no need to build anymore
+  MY_PACKAGES: magnetometer_covariance_broadcaster
 
 jobs:
   build-and-test:
@@ -52,7 +51,7 @@ jobs:
         with:
           target-ros2-distro: ${{ matrix.ros_distribution }}
           package-name: ${{ env.MY_PACKAGES }}
-          vcs-repo-file-url: "${{ github.workspace }}/.github/bno08x_sh2_dependency.repos"
+          vcs-repo-file-url: ""
           colcon-defaults: ""     # no mixin like "coverage-gcc"
           coverage-result: false  #
 
